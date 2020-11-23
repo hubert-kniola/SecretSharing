@@ -7,3 +7,12 @@ C:\Users\hubkn\source\repos\ShamirSchemat\TrivialMethod\obj\Debug\netcoreapp3.1\
 C:\Users\hubkn\source\repos\ShamirSchemat\TrivialMethod\obj\Debug\netcoreapp3.1\TrivialMethod.csproj.CoreCompileInputs.cache
 C:\Users\hubkn\source\repos\ShamirSchemat\TrivialMethod\obj\Debug\netcoreapp3.1\TrivialMethod.dll
 C:\Users\hubkn\source\repos\ShamirSchemat\TrivialMethod\obj\Debug\netcoreapp3.1\TrivialMethod.pdb
+C:\Users\hubkn\Desktop\SecretSharing\TrivialMethod\bin\Debug\netcoreapp3.1\TrivialMethod.deps.json
+C:\Users\hubkn\Desktop\SecretSharing\TrivialMethod\bin\Debug\netcoreapp3.1\TrivialMethod.dll
+C:\Users\hubkn\Desktop\SecretSharing\TrivialMethod\bin\Debug\netcoreapp3.1\TrivialMethod.pdb
+C:\Users\hubkn\Desktop\SecretSharing\TrivialMethod\obj\Debug\netcoreapp3.1\TrivialMethod.csprojAssemblyReference.cache
+C:\Users\hubkn\Desktop\SecretSharing\TrivialMethod\obj\Debug\netcoreapp3.1\TrivialMethod.AssemblyInfoInputs.cache
+C:\Users\hubkn\Desktop\SecretSharing\TrivialMethod\obj\Debug\netcoreapp3.1\TrivialMethod.AssemblyInfo.cs
+C:\Users\hubkn\Desktop\SecretSharing\TrivialMethod\obj\Debug\netcoreapp3.1\TrivialMethod.csproj.CoreCompileInputs.cache
+C:\Users\hubkn\Desktop\SecretSharing\TrivialMethod\obj\Debug\netcoreapp3.1\TrivialMethod.dll
+C:\Users\hubkn\Desktop\SecretSharing\TrivialMethod\obj\Debug\netcoreapp3.1\TrivialMethod.pdb
