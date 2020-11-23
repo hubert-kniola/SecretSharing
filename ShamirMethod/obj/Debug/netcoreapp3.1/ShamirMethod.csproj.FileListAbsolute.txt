@@ -1,0 +1,9 @@
+C:\Users\hubkn\source\repos\ShamirSchemat\ShamirMethod\bin\Debug\netcoreapp3.1\ShamirMethod.deps.json
+C:\Users\hubkn\source\repos\ShamirSchemat\ShamirMethod\bin\Debug\netcoreapp3.1\ShamirMethod.dll
+C:\Users\hubkn\source\repos\ShamirSchemat\ShamirMethod\bin\Debug\netcoreapp3.1\ShamirMethod.pdb
+C:\Users\hubkn\source\repos\ShamirSchemat\ShamirMethod\obj\Debug\netcoreapp3.1\ShamirMethod.csprojAssemblyReference.cache
+C:\Users\hubkn\source\repos\ShamirSchemat\ShamirMethod\obj\Debug\netcoreapp3.1\ShamirMethod.AssemblyInfoInputs.cache
+C:\Users\hubkn\source\repos\ShamirSchemat\ShamirMethod\obj\Debug\netcoreapp3.1\ShamirMethod.AssemblyInfo.cs
+C:\Users\hubkn\source\repos\ShamirSchemat\ShamirMethod\obj\Debug\netcoreapp3.1\ShamirMethod.csproj.CoreCompileInputs.cache
+C:\Users\hubkn\source\repos\ShamirSchemat\ShamirMethod\obj\Debug\netcoreapp3.1\ShamirMethod.dll
+C:\Users\hubkn\source\repos\ShamirSchemat\ShamirMethod\obj\Debug\netcoreapp3.1\ShamirMethod.pdb
