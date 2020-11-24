@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Numerics;
 using System.Text;
+using System.Threading;
 
 namespace ShamirMethod
 {
     public class SMAlgorithm
     {
-        Random _rnx = new Random();
+        private static Random _rnx = new Random();
 
-        public static List<KeyValuePair<int, int>> DivisonSecret(List<int> shList, int _n, int _t, int _k, int _s, int _p)
+        public static List<KeyValuePair<int, int>> DivisonSecret(List<int> shList, int _n, int _t, int _s, int _p)
         {
             List<KeyValuePair<int, int>> sList = new List<KeyValuePair<int, int>>();
             for (int i = 0; i < _n; i++)
@@ -18,39 +19,56 @@ namespace ShamirMethod
                 double sum = (int)_s;
                 for (int j = 0; j < _t - 1; j++)
                 {
-                    sum += (int)shList[j] * (Math.Pow(Convert.ToDouble(i) + 1, j + 1));
+                    sum += shList[j] * (Math.Pow(Convert.ToDouble(i) + 1, j + 1));
                 }
-                sList.Add(new KeyValuePair<int, int>(i, (int)sum % _p));
+                sList.Add(new KeyValuePair<int, int>(i + 1, (int)sum % _p));
             }
             return sList;
         }
 
-        public static int RecreateSecret(List<KeyValuePair<int, int>> sDict, int _t, int _p)
+        public static int RecreateSecret(List<KeyValuePair<int, int>> aList, int _t, int _p)
         {
             double sum = 0;
-
-            foreach (var e in sDict)
+            for (int i = 0; i < _t; i++)
             {
+                double licznik = 1;
+                double mianownik = 1;
                 double x = 1;
-                double y = 1;
-                for (int j = 0; j < _t - 1; j++)
+                for (int j = 0; j < _t; j++)
                 {
-                    if (j == e.Key)
+                    if (aList[i].Key == aList[j].Key)
                         continue;
-                    x *= 0 - (double)sDict[j].Key;
-                    y *= ((double)e.Value - (double)sDict[j].Key);
+                    licznik *= -aList[j].Key;
+                    mianownik *= aList[i].Key - aList[j].Key;
                 }
-
-                sum += (x / y * ((int)e.Value + 1)) % (int)_p;
-            }     
-            return (int)sum;
+                if (licznik % mianownik == 0)
+                    x *= (licznik / mianownik);
+                else
+                {
+                    if (mianownik < 0 && licznik < 0)
+                    {
+                        mianownik *= -1;
+                        licznik *= -1;
+                    }
+                    int temp = 1;
+                    while (temp * mianownik % _p != licznik)
+                        temp++;
+                    x *= temp;
+                }
+                Console.WriteLine(x * (int)aList[i].Value % _p);
+                sum += ((x * (int)aList[i].Value % _p) + _p) % _p;
+            }
+            return (((int)sum + _p) % _p);
         }
 
-        public static List<int> nthNumberGenerator(int n, int k)
+        public static List<int> nthNumberGenerator(int t, int k)
         {
             var list = new List<int>();
-            for (int i = 0; i < n - 1; i++)
-                list.Add(SMCalculations.randomNumber(0,k));
+            for (int i = 0; i < t - 1; i++)
+            {
+                Thread.Sleep(100);
+                list.Add(SMCalculations.randomNumber(0, k));
+            }
             return list;
         }
 
@@ -67,25 +85,28 @@ namespace ShamirMethod
 
             Stopwatch sw = Stopwatch.StartNew();
             sw.Start();
-            int _s = 954;
-            //BigInteger _s = SMCalculations.randomNumber(0, (int)_k);
+            //int _s = 954;
+            var _s = SMCalculations.randomNumber(0, (int)_k);
             sw.Stop();
             Console.WriteLine($"Value of secret: {_s}| Generation time [ms]: {sw.Elapsed}");
 
             sw.Start();
-            int _p;
+            int _p = _s - 1;
             do
+            {
                 _p = SMCalculations.randomIntegerPrime(0, (int)_k);
-            while (_p <= _s && _p <= _n);
+            } while (_p <= _s || _p <= _n);
+
             sw.Stop();
             Console.WriteLine($"Value of p: {_p}| Generation time [ms]: {sw.Elapsed}");
 
-            var shList = nthNumberGenerator(_n, _k);
+            var shList = nthNumberGenerator(_t, _k);
 
-            var shareholderDict = DivisonSecret(shList, _n, _t, _k, _s, _p);
-            foreach (KeyValuePair<int, int> element in shareholderDict)
+            var shareholderDict = DivisonSecret(shList, _n, _t, _s, _p);
+            foreach (var element in shareholderDict)
                 Console.Write($" {element.Value}");
             Console.WriteLine();
+
             var recreateSecret = RecreateSecret(shareholderDict, _t, _p);
             Console.WriteLine($"Recreate Secret: {recreateSecret}");
         }
